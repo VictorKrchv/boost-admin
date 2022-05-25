@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@craco/craco": "^6.4.3",
     "@testing-library/jest-dom": "^5.14.1",
     "@testing-library/react": "^13.0.0",
     "@testing-library/user-event": "^13.2.1",
@@ -10,17 +11,29 @@
     "@types/node": "^16.7.13",
     "@types/react": "^18.0.0",
     "@types/react-dom": "^18.0.0",
+    "antd": "^4.20.6",
+    "axios": "^0.27.2",
+    "compose-function": "^3.0.3",
+    "effector": "^22.3.0",
+    "effector-react": "^22.0.6",
+    "patronum": "^1.8.2",
     "react": "^18.1.0",
     "react-dom": "^18.1.0",
+    "react-router-dom": "^6.3.0",
     "react-scripts": "5.0.1",
+    "styled-components": "^5.3.5",
     "typescript": "^4.4.2",
     "web-vitals": "^2.1.0"
   },
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "start": "cross-env REACT_APP_MODE=development craco start",
+    "build": "craco build",
+    "build:dev": "cross-env REACT_APP_MODE=development craco build",
+    "build:prod": "cross-env REACT_APP_MODE=production craco build",
+    "test": "craco test",
+    "lint": "eslint src/**/*.{ts,tsx,js,jsx,json}",
+    "lint:fix": "eslint src/**/*.{ts,tsx,js,jsx,json} --fix",
+    "format": "prettier --write \"./src/**/**.{ts,tsx,js,jsx,json}\""
   },
   "eslintConfig": {
     "extends": [
@@ -39,5 +52,21 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "@types/compose-function": "^0.0.30",
+    "@types/styled-components": "^5.1.25",
+    "craco-alias": "^3.0.1",
+    "cross-env": "^7.0.3",
+    "eslint": "^8.16.0",
+    "eslint-config-prettier": "^8.5.0",
+    "eslint-config-react-app": "^7.0.1",
+    "eslint-plugin-flowtype": "^8.0.3",
+    "eslint-plugin-import": "^2.26.0",
+    "eslint-plugin-jsx-a11y": "^6.5.1",
+    "eslint-plugin-prettier": "^4.0.0",
+    "eslint-plugin-react": "^7.30.0",
+    "eslint-plugin-react-hooks": "^4.5.0",
+    "prettier": "^2.6.2"
   }
 }
